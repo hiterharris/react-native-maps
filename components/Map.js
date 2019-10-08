@@ -30,8 +30,7 @@ export default class Map extends React.Component {
   }
 
   render() {
-    const { latitude, longitude, locations } = this.state;
-    const favSpots = locations.map(coords => ({ coords }));
+    const { latitude, longitude } = this.state;
     if (latitude && longitude) {
       return (
         <MapView
