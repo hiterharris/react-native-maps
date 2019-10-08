@@ -59,7 +59,13 @@ export default class Map extends React.Component {
               longitude: -80.863610,
             }}
             title={"Spoons"}
-
+          />
+                    <MapView.Marker
+            coordinate={{
+              latitude: 35.200320,
+              longitude: -80.866020,
+            }}
+            title={"Harris Teeter"}
           />
         </MapView>
       );

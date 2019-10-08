@@ -14,5 +14,13 @@
             "latitude": 35.204830,
             "longitude": -80.863610
         }
+    },
+    {
+        "name": "Harris Teeter",
+        "address": "2717 South Blvd, Charlotte, NC 28209",
+        "coords": {
+            "latitude": 35.200320,
+            "longitude": -80.866020
+        }
     }
 ]
