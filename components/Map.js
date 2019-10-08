@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 import * as Permissions from 'expo-permissions';
+import Polyline from '@mapbox/polyline';
+const locations = require('../assets/locations.json');
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -9,6 +11,7 @@ export default class Map extends React.Component {
     this.state = {
       latitude: null,
       longitude: null,
+      locations: locations,
     }
   }
 
@@ -21,29 +24,44 @@ export default class Map extends React.Component {
     }
 
     navigator.geolocation.getCurrentPosition(
-      ({ coords: { latitude, longitude }}) => this.setState({ latitude, longitude }, () => console.log('State:', this.state)),
+      ({ coords: { latitude, longitude }}) => this.setState({ latitude, longitude }),
       (error) => console.log('Error:', error)
     )
-
   }
 
   render() {
-    const { latitude, longitude } = this.state;
-    if (latitude) {
+    const { latitude, longitude, locations } = this.state;
+    const favSpots = locations.map(coords => ({ coords }));
+    if (latitude && longitude) {
       return (
         <MapView
           initialRegion={{
             // Charlotte coordinates
-            // latitude: 35.22773070223148,
-            // longitude: -80.84246401852897,
-            latitude,
-            longitude,
+            latitude: 35.20278970223148,
+            longitude: -80.86862901852897,
+            // latitude,
+            // longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
+          showsUserLocation
           style={styles.mapView}
         >
-    
+          <MapView.Marker
+            coordinate={{
+              latitude: 35.193890,
+              longitude: -80.879940,
+            }}
+            title={"STAX"}
+          />
+          <MapView.Marker
+            coordinate={{
+              latitude: 35.204830,
+              longitude: -80.863610,
+            }}
+            title={"Spoons"}
+
+          />
         </MapView>
       );
     }

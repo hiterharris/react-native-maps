@@ -1,0 +1,18 @@
+[
+    {
+        "name": "STAX",
+        "address": "3722 S Tryon St, Charlotte, NC 28217",
+        "coords": {
+            "latitude": 35.193890,
+            "longitude": -80.879940
+        }
+    },
+    {
+        "name": "Spoons",
+        "address": "2334 South Blvd, Charlotte, NC 28203",
+        "coords": {
+            "latitude": 35.204830,
+            "longitude": -80.863610
+        }
+    }
+]
